@@ -1,0 +1,25 @@
+#! /bin/bash
+liste=$1
+lstIP=$(cat $liste)
+
+#remplacez le répertoire par le vôtre ici
+if [ ! -f /home/etudiant1/Bureau/status.html ]; then
+    echo "Bye"; fi
+#remplacez le répertoire par le vôtre ici
+    if [ ! -f /home/etudiant1/Bureau/liste.txt ]; then
+    echo "ERREUR : LE FICHIER SOURCE "liste.txt" N'EXISTE PAS !!" 
+        else
+            for x in $lstIP
+
+                do 
+                resutl=$(ping -c2 $x)
+                up=$(echo $result | grep "0% packet loss")
+                down=$(echo $result | grep "100% packet loss")
+                    echo $x  "OK"
+                     echo $x  "ERREUR"
+        done
+    fi
+
+
+
+
